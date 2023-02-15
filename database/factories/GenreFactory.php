@@ -18,7 +18,7 @@ class GenreFactory extends Factory
     {
         return [
             
-          'name' => fake() -> word(),
+          'name' => fake() -> unique() -> word(),
           'description' => fake() -> paragraph()  
         ];
     }
