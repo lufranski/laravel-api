@@ -6,6 +6,8 @@
 
     <h1>Genres</h1>
 
+    <a href="{{ route('home.movies')}}">Browse for movie</a>
+
     @foreach ($genres as $genre)
         
         <h2> {{ $genre -> name }}</h2>
