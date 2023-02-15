@@ -4,6 +4,9 @@
     
     <h1>Movies</h1>
 
+    <a href="{{ route('home')}}">Oh heck go back!</a>
+
+    <a href="{{ route('home.movies.create')}}">Add new movie</a>
 
     <ul>
 

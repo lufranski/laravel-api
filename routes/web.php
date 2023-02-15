@@ -18,3 +18,7 @@ use App\Http\Controllers\MainController;
 Route::get('/', [MainController::class, 'home']) -> name('home');
 
 Route::get('/movie', [MainController::class, 'movies']) -> name('home.movies');
+
+Route::get('/movie/create', [MainController::class, 'create']) -> name('home.movies.create');
+
+Route::post('/movie/store', [MainController::class, 'store']) -> name('home.movies.store');
