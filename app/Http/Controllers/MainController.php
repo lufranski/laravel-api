@@ -92,6 +92,9 @@ class MainController extends Controller
 
     public function destroy(Movie $movie){
 
+        $movie -> tags() -> sync([]);
+        $movie -> delete();
 
+        return redirect() -> route('home');
     }
 }
