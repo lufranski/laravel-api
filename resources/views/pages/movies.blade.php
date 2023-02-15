@@ -39,6 +39,13 @@
                     @endforeach
                     {{-- @dump($movie -> tags) --}}
                 </p>
+
+                <div>
+                    <a href="{{ route('home.movies.edit', $movie)}}">EDIT</a>
+                    -
+                    <a href="{{ route('home.movies.destroy', $movie)}}">DELETE</a>
+
+                </div>
             </li>    
     
         @endforeach
