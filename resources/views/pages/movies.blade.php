@@ -25,9 +25,17 @@
                     Box office: {{ $movie -> boxOffice }} Mlns
                 </p>
 
-                {{-- <p>
-                    Genre: {{ $movie -> $genres -> $genre -> name }}
-                </p> --}}
+                <p>
+                    Genre: {{ strtoupper($movie -> genre -> name) }}
+                </p>
+
+                <p>
+                    Tags: 
+                    @foreach ($movie -> tags as $tag)
+                        #{{ $tag -> name }}
+                    @endforeach
+                    {{-- @dump($movie -> tags) --}}
+                </p>
             </li>    
     
         @endforeach
