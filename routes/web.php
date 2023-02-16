@@ -28,3 +28,7 @@ Route::get('/movie/edit/{movie}', [MainController::class, 'edit']) -> name('home
 Route::post('/movie/update/{movie}', [MainController::class, 'update']) -> name('home.movies.update');
 
 Route::get('/movie/delete/{movie}', [MainController::class, 'destroy']) -> name('home.movies.destroy');
+
+use App\Http\Controllers\ApiController;
+
+Route::get('/api/v1/movie/all', [ApiController::class, 'index']);
