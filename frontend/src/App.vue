@@ -5,23 +5,42 @@ import axios from 'axios';
 export default{
   data(){
     return{
-      movieList : []
+      movieList : [],
+      api: 'http://127.0.0.1:8000/api/v1/',
+      genres: [],
+      tags: []
+    }
+  },
+  methods: {
+
+    getAllMovies(){
+
+      axios.get(this.api + 'movie/all')
+           .then(res => {
+    
+              const data = res.data;
+              const success = data.success;
+              const response = data.response;
+
+              const movies = response.movies;
+              const genres = response.genres;
+              const tags = response.tags;
+
+
+              if(success){
+    
+                this.movies = movies;
+                this.genres = genres;
+                this.tags = tags;
+              }  
+    
+           })
+           .catch(err => console.error(err));
     }
   },
   mounted(){
-
-    axios.get('http://127.0.0.1:8000/api/v1/movie/all')
-         .then(res => {
-
-            const data = res.data;
-            const success = data.success;
-            const movies = data.response;
-
-            this.movieList = movies;
-
-            console.log(movies);
-         })
-         .catch(err => console.error(err));
+    
+    this.getAllMovies();
   }
 }
 
@@ -31,24 +50,30 @@ export default{
   
   <h1>Movies</h1>
   <ul>
-    <li v-for="movie in this.movieList" :key="movie.index">
+    <li v-for="movie in this.movies" :key="movie.id">
         {{ movie.name }}
+
+        <!-- <p>{{ movie.genre }}</p> -->
+
+        <ul class="tag_list">
+          <li v-for="tag in movie.tags" :key="tag.id">
+            #{{ tag.name }}
+          </li>
+        </ul>
     </li>
   </ul>
 
 </template>
 
 <style>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+ul {
+  list-style-type: none;
+
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.tag_list {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
 }
 </style>
