@@ -41,7 +41,7 @@ class MainController extends Controller
             'year' => 'required | integer ',
             'boxOffice' => 'required | integer',
             'genre_id' => 'required | integer',
-            'tags' => 'required | array' 
+            'tags' => 'nullable | array' 
         ]);
 
         $id = rand(10000,99999);
@@ -75,7 +75,7 @@ class MainController extends Controller
             'year' => 'required | integer ',
             'boxOffice' => 'required | integer',
             'genre_id' => 'required | integer',
-            'tags' => 'required | array' 
+            'tags' => 'nullable | array' 
         ]);
 
         $movie -> update($data);
