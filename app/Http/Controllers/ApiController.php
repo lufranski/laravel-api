@@ -36,7 +36,7 @@ class ApiController extends Controller
         $data = $request -> validate([
             'name' => 'required|string|min:3',
             'year' => 'required|integer|min:0',
-            'cashOut' => 'required|integer|min:0',
+            'boxOffice' => 'required|integer|min:0',
             'genre_id' => 'required|integer|min:1',
             'tags_id' => 'nullable|array'
         ]);
@@ -65,7 +65,7 @@ class ApiController extends Controller
         $data = $request -> validate([
             'name' => 'required|string|min:3',
             'year' => 'required|integer|min:0',
-            'cashOut' => 'required|integer|min:0',
+            'boxOffice' => 'required|integer|min:0',
             'genre_id' => 'required|integer|min:1',
             'tags_id' => 'nullable|array'
         ]);

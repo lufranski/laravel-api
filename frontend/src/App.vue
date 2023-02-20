@@ -9,7 +9,7 @@ const empty_movie= {
 export default{
   data(){
     return{
-      api: 'http://127.0.0.1:8000/api/v1/',
+      api: 'http://localhost:8000/api/v1/',
       movies: [],
       genres: [],
       tags: [],
@@ -128,8 +128,8 @@ export default{
         <label :for="'tag-' + tag.id">{{ tag.name }}</label>
       </div>
 
-      <button @click="closeForm()">CANCEL</button>
-      <input type="submit" @click="submitMovie()" :value="'id' in new_movie ? 'UPDATE MOVIE: ' : 'CREATE NEW MOVIE'">
+      <button @click="closeForm">CANCEL</button>
+      <input type="submit" @click="submitMovie" :value="'id' in new_movie ? 'UPDATE MOVIE: ' : 'CREATE NEW MOVIE'">
     </form>
 
     <div>
