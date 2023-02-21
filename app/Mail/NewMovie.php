@@ -13,37 +13,22 @@ class NewMovie extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-
     public $movie;
 
-    public function __construct()
+    public function __construct($movie)
     {
         $this -> movie = $movie;
     }
 
-    /**
-     * Get the message envelope.
-     *
-     * @return \Illuminate\Mail\Mailables\Envelope
-     */
+    
     public function envelope()
     {
         return new Envelope(
             subject: 'New Movie',
-            replyTo: 'noreply@laravelapi.com'
+            replyTo: ['noreply@laravelapi.com']
         );
     }
 
-    /**
-     * Get the message content definition.
-     *
-     * @return \Illuminate\Mail\Mailables\Content
-     */
     public function content()
     {
         return new Content(
@@ -51,13 +36,4 @@ class NewMovie extends Mailable
         );
     }
 
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array
-     */
-    // public function attachments()
-    // {
-    //     return [];
-    // }
 }
