@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 use App\Models\Movie;
 use App\Models\Genre;
 use App\Models\Tag;
+
+use App\Mail\NewMovie;
 
 class ApiController extends Controller
 {
@@ -53,6 +56,9 @@ class ApiController extends Controller
             $movie -> tags() -> sync($tags);
         }
         
+        Mail::to('admin@laravelapi.com')
+            -> send(new NewMovie($movie));
+
         return response() -> json([
             'success' => true,
             'response' => $movie,
