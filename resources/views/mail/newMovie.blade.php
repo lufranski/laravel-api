@@ -9,7 +9,7 @@
     
     <h1>Hello admin!</h1>
     <h4>A new movie has been created!</h4>
-    {{-- <h5>{{ $movie -> name }}</h5> --}}
+    <h5>{{ $movie -> name }}</h5>
 
 </body>
 </html>
